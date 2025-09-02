@@ -12,12 +12,17 @@ public class FileIOEx {
 		FileOutputStream fout = null;
 		
 		try {
-			fin = new FileInputStream("c:/sh/java_work/abc.jpg");
-			fout = new FileOutputStream("c:/sh/java_work/aaa.jpg");
+			fin = new FileInputStream("c:/sh/java_work/a03.jpg");
+			fout = new FileOutputStream("c:/sh/java_work/3.jpg");
+			long start = System.currentTimeMillis();
+			System.out.println("복사직전 시간 : "+start);
 			int c;
 			while((c=fin.read()) != -1) {
 				fout.write((byte)c);
 			}
+			long end = System.currentTimeMillis();
+			System.out.println("복사 후 시간 : "+end);
+			System.out.println("파일복사에 걸린 시간 : "+(end-start));
 		} catch(IOException e) {
 			e.printStackTrace();
 		} finally {
